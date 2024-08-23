@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Orden Lab</title>
+	<meta charset="utf-8">
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+	<style type="text/css">
+		table {
+		    border-collapse: collapse;
+		}
+
+		table, th, td {
+		    border: 1px solid black;
+		}
+		body{ font-size:11px; font-family: 'Open Sans', sans-serif;}
+		.block2 {
+			display: inline-block;
+		}
+
+		table.noborder , .noborder th, .noborder td {
+			border: 0;
+			border-collapse: none;
+		}
+	</style>
+</head>
+<body>
+	<table class="noborder">
+	<tr class="noborder">
+		<td class="noborder">
+			<img src="<?php echo base_url().'/assets/nuevotemp/img/logo3.png';?>" style="width:250px;"/>
+		</td>
+		<td>
+			<h3>Orden de Lab. #<?php echo $ord_ceros;?></h3>
+		</td>
+	</tr>
+	</table>
+	<div class="col-md-12">
+		<?php //var_dump($evdat);?>
+		
+		<!--<span style="float:right; font-size: 1.5em;"><?php echo isset($eval["laboratorio_lente"]) ? $eval["laboratorio_lente"] : "";?></span>-->
+		<hr>
+		<b>Paciente: </b> <?php echo $cli->Nombre;?><br/>
+		<b>Fecha: </b> <?php echo date("d/m/Y");?><br/>
+		<hr>
+		<?php
+		if($eval["lejos_refra_od_esf"] != null || $eval["lejos_refra_od_cyl"] != null || $eval["lejos_refra_od_eje"] != null || $eval["lejos_refra_od_prismas"] != null || $eval["lejos_refra_od_adicion"] != null || $eval["lejos_refra_od_dnp"] != null || $eval["lejos_refra_od_alt"] != null || $eval["lejos_refra_od_avcc"] != null || $eval["lejos_refra_oi_esf"] != null || $eval["lejos_refra_oi_cyl"] != null || $eval["lejos_refra_oi_eje"] != null || $eval["lejos_refra_oi_prismas"] != null || $eval["lejos_refra_oi_adicion"] != null || $eval["lejos_refra_oi_dnp"] != null || $eval["lejos_refra_oi_alt"] != null || $eval["lejos_refra_oi_avcc"] != null){
+			?>
+
+		<table class="table table-bordered" border="1">
+						<tr style="color:#fff; background: #043c77; font-size:13px; text-align:center; font-weight:bold;">
+							<td colspan="9">Lejos</td>
+						</tr>
+						<tr style="color:#fff; background: #043c77;">
+				
+							<td><b>Medida</b></td>
+							<td><b>ESF</b></td>
+							<td><b>CYL</b></td>
+							<td><b>EJE</b></td>
+							<td><b>PRISMAS</b></td>
+							<td><b>ADICIÓN</b></td>
+							<td><b>DNP</b></td>
+							<td><b>ALT</b></td>
+							<td><b>A.V.C.C.</b></td>
+						</tr>
+
+						<tr>
+							<td><strong>O.D.</strong></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_esf"]) ? $eval["lejos_refra_od_esf"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_cyl"]) ? $eval["lejos_refra_od_cyl"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_eje"]) ? $eval["lejos_refra_od_eje"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_prismas"]) ? $eval["lejos_refra_od_prismas"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_adicion"]) ? $eval["lejos_refra_od_adicion"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_dnp"]) ? $eval["lejos_refra_od_dnp"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_alt"]) ? $eval["lejos_refra_od_alt"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_od_avcc"]) ? $eval["lejos_refra_od_avcc"] : ''; ?></td>
+						</tr>
+						<tr>
+							<td><strong>O.I.</strong></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_esf"]) ? $eval["lejos_refra_oi_esf"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_cyl"]) ? $eval["lejos_refra_oi_cyl"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_eje"]) ? $eval["lejos_refra_oi_eje"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_prismas"]) ? $eval["lejos_refra_oi_prismas"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_adicion"]) ? $eval["lejos_refra_oi_adicion"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_dnp"]) ? $eval["lejos_refra_oi_dnp"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_alt"]) ? $eval["lejos_refra_oi_alt"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["lejos_refra_oi_avcc"]) ? $eval["lejos_refra_oi_avcc"] : ''; ?></td>
+						</tr>
+					
+				</table>
+		<?php }?>
+		<?php
+		if($eval["cerca_refra_od_esf"] != null || $eval["cerca_refra_od_cyl"] != null || $eval["cerca_refra_od_eje"] != null || $eval["cerca_refra_od_prismas"] != null || $eval["cerca_refra_od_adicion"] != null || $eval["cerca_refra_od_dnp"] != null || $eval["cerca_refra_od_alt"] != null || $eval["cerca_refra_od_avcc"] != null || $eval["cerca_refra_oi_esf"] != null || $eval["cerca_refra_oi_cyl"] != null || $eval["cerca_refra_oi_eje"] != null || $eval["cerca_refra_oi_prismas"] != null || $eval["cerca_refra_oi_adicion"] != null || $eval["cerca_refra_oi_dnp"] != null || $eval["cerca_refra_oi_alt"] != null || $eval["cerca_refra_oi_avcc"] != null){
+			?>
+
+		<table class="table table-bordered" style="margin-top:10px;">
+						<tr style="color:#fff; background: #d96017; font-size:13px; text-align:center; font-weight:bold;">
+							<td colspan="9">Cerca</td>
+						</tr>
+						<tr style="color:#fff; background: #d96017;">
+							<td><b>Medida</b></td>
+							<td><b>ESF</b></td>
+							<td><b>CYL</b></td>
+							<td><b>EJE</b></td>
+							<td><b>PRISMAS</b></td>
+							<td><b>ADICIÓN</b></td>
+							<td><b>DNP</b></td>
+							<td><b>ALT</b></td>
+							<td><b>A.V.C.C.</b></td>
+						</tr>
+
+						<tr>
+							<td><strong>O.D.</strong></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_esf"]) ? $eval["cerca_refra_od_esf"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_cyl"]) ? $eval["cerca_refra_od_cyl"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_eje"]) ? $eval["cerca_refra_od_eje"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_prismas"]) ? $eval["cerca_refra_od_prismas"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_adicion"]) ? $eval["cerca_refra_od_adicion"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_dnp"]) ? $eval["cerca_refra_od_dnp"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_alt"]) ? $eval["cerca_refra_od_alt"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_od_avcc"]) ? $eval["cerca_refra_od_avcc"] : ''; ?></td>
+						</tr>
+						<tr>
+							<td><strong>O.I.</strong></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_esf"]) ? $eval["cerca_refra_oi_esf"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_cyl"]) ? $eval["cerca_refra_oi_cyl"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_eje"]) ? $eval["cerca_refra_oi_eje"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_prismas"]) ? $eval["cerca_refra_oi_prismas"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_adicion"]) ? $eval["cerca_refra_oi_adicion"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_dnp"]) ? $eval["cerca_refra_oi_dnp"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_alt"]) ? $eval["cerca_refra_oi_alt"] : ''; ?></td>
+							<td><?php echo $eval != null && isset($eval["cerca_refra_oi_avcc"]) ? $eval["cerca_refra_oi_avcc"] : ''; ?></td>
+						</tr>
+					
+				</table>
+		<?php }?>
+	</div>
+	<div class="col-md-12">
+		<hr>
+		<b>Material Lente: </b> <?php echo isset($eval["material_lente_hide"])?$eval["material_lente_hide"]:"";?><br/>
+		<b>Montura: </b> <?php echo isset($eval["montura"])?$eval["montura"]:$eval["montura_paciente"];?><br/>
+		<b>Tipo de Montura: </b> <?php echo isset($eval["tipo_montura"])?$eval["tipo_montura"]:"";?><br/>
+		<b>Montaje: </b> <?php echo isset($eval["montaje"])?$eval["montaje"]:"";?><br/>
+
+		<b>Ángulo Panorámico: </b> <?php echo isset($eval["angulo_panoramico"])?$eval["angulo_panoramico"]:" - ";?>
+		<b style="margin-left:10px;">Ángulo Pantoscópico: </b> <?php echo isset($eval["angulo_pantoscopico"])?$eval["angulo_pantoscopico"]:" - ";?>
+		<b style="margin-left:10px;">Distancia Vértice: </b> <?php echo isset($eval["distancia_vertice"])?$eval["distancia_vertice"]:" - ";?>
+		<hr>
+		<h4>Datos de la Montura (mm)</h4>
+		<b>Horizontal:</b> <?php echo isset($eval["horizontal"])?$eval["horizontal"]:" - ";?>
+		<b style="margin-left:10px;">Vertical:</b> <?php echo isset($eval["vertical"])?$eval["vertical"]:" - ";?>
+		<b style="margin-left:10px;">Puente:</b> <?php echo isset($eval["puente"])?$eval["puente"]:" - ";?>
+		<b style="margin-left:10px;">Diagonal:</b> <?php echo isset($eval["diagonal"])?$eval["diagonal"]:" - ";?>
+		
+	</div>
+</body>
+</html>
